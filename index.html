@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EditMate AI — Drop the clip. We find the meme.</title>
+<meta name="description" content="EditMate AI understands your video and finds the right meme, sticker or SFX at the right moment." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in"><div class="logo"><a href="/" style="display:flex;align-items:center;gap:10px"><div class="logo-mark">🎬</div> EditMate AI <small>V2 FRESH</small></a></div><div class="links"><a href="/" class="on">Home</a><a href="/studio.html">Studio</a><a href="/library.html">Library</a><a href="/social.html">🤳 Social</a><a href="/pricing.html">Pricing</a><a href="/feedback.html">Feedback</a></div><div style="display:flex;gap:10px"><a href="/studio.html" class="btn btn-pri btn-sm">✨ Try live demo</a></div></div></nav><div class="ticker"><span>✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp; ✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp;</span></div>
+
+<div class="wrap hero">
+  <div>
+    <span class="badge"><span class="dotpulse"></span> 🤖 AI meme assistant for editors • v2 redesign</span>
+    <h1>DROP THE CLIP.<br><span class="hl y">WE FIND</span> THE <span class="hl p">MEME.</span><br><span class="hl c">NAIL THE TIMING.</span></h1>
+    <p class="sub"><b>“EditMate AI understands your video and helps you find the right editing element at the right moment.”</b><br>Upload → AI reads scenes, dialogue & emotion → get meme / sticker / GIF / SFX picks with auto-synced timestamps → preview before you commit. No more digging through meme folders.</p>
+    <div class="hero-cta">
+      <a href="/studio.html" class="btn btn-pri">🎥 Upload & analyze →</a>
+      <a href="/library.html" class="btn">Browse the meme library ↓</a>
+    </div>
+    <div class="proof">
+      <div class="avatars"><span>🧑‍🎨</span><span>👩‍💻</span><span>🧔</span><span>👧</span><span style="background:var(--ink);color:var(--lime);font-size:12px;font-weight:800">2k+</span></div>
+      <div class="stars">★★★★★ <span style="color:#5b5240;font-weight:600">loved by meme-page editors & YouTubers</span></div>
+    </div>
+  </div>
+  <div class="art">
+    <div class="stick st1">💀</div><div class="stick st2">🔥</div>
+    <div class="browser">
+      <div class="browser-top"><span class="dot" style="background:#FF6B6B"></span><span class="dot" style="background:#FFDE59"></span><span class="dot" style="background:#51E08A"></span><span style="margin-left:auto">editmate.ai/studio ✦ live</span><span class="realbadge">🎥 REAL FOOTAGE</span></div>
+      <div class="screen">
+        <div class="player" id="heroPlayer"><span class="ai-tag" id="heroTag">🧠 reading scene…</span><span id="heroTime">00:00 / 00:10</span><video id="heroVid" muted loop playsinline preload="metadata"><source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" type="video/mp4"><source src="https://test-videos.co.uk/vids/jellyfish/mp4/h264/720/Jellyfish_720_10s_1MB.mp4" type="video/mp4"><source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4"></video><div id="heroOverlay"></div><div id="heroFlash"></div><div id="heroCut">✂ CUT</div><div id="heroCap">♪ jellyfish cam — original audio</div><div id="heroSfx">🔊</div><button id="heroPlay" aria-label="Play preview">▶</button></div>
+        <div class="tlmini"><div class="laneLegend"><span>V1 🎞 cuts</span><span>V2 ✨ memes / sfx</span><span id="heroClip">🎥 jellyfish_cam.mp4</span></div><div class="tlbar" id="heroTrack"><div class="tlfill" id="heroFill"></div><div id="heroHead"></div><div id="heroTip">00:00</div><div class="tlcut" style="left:22%"></div><div class="tlcut" style="left:48%"></div><div class="tlcut" style="left:66%"></div><div class="tlmark" data-i="0" style="left:8%;background:var(--cyan)" title="🔥 @ 00:00.8">🔥</div><div class="tlmark" data-i="1" style="left:30%;background:var(--yellow)" title="💀 @ 00:03">💀</div><div class="tlmark" data-i="2" style="left:45%;background:#fff" title="🙄 @ 00:04.5">🙄</div><div class="tlmark" data-i="3" style="left:55%;background:var(--pink)" title="😭 @ 00:05.5">😭</div><div class="tlmark" data-i="4" style="left:78%;background:var(--lime)" title="👏 @ 00:07.8">👏</div></div>
+        <div class="chips"><button class="chip hot" data-i="1">💀 vine-boom @ 00:03</button><button class="chip" data-i="3">😭 @ 00:05.5</button><button class="chip" data-i="4">👏 SFX @ 00:07.8</button><button class="chip" data-i="0">🔥 @ 00:00.8</button></div>
+        <div class="heroEdl" id="heroEdl"></div>
+        <div class="heroCtl"><button class="chip" id="heroMine">🎥 Use my own real-life clip</button><button class="chip" id="heroReset">↺ Sample clip</button><input type="file" id="heroFile" accept="video/*" hidden /></div>
+        <div class="heroHint">drag the bar to scrub — tap anywhere and it plays forward from there ▶</div>
+        </div>
+      </div>
+    </div>
+    <div class="stick st3">⚡ auto-sync ON</div>
+  </div>
+</div>
+
+<div class="strip"><span>🎭 MEMES &nbsp;✦&nbsp; ⭐ STICKERS &nbsp;✦&nbsp; 🎞️ GIFS &nbsp;✦&nbsp; 🔊 SFX &nbsp;✦&nbsp; 😱 REACTIONS &nbsp;✦&nbsp; 🎭 MEMES &nbsp;✦&nbsp; ⭐ STICKERS &nbsp;✦&nbsp; 🎞️ GIFS &nbsp;✦&nbsp; 🔊 SFX &nbsp;✦&nbsp; 😱 REACTIONS &nbsp;✦&nbsp;</span></div>
+
+<section id="how"><div class="wrap">
+  <span class="kicker">HOW IT WORKS</span>
+  <h2>From raw clip to timed meme in 7 steps 🎬</h2>
+  <p class="sec-sub">No editing skills needed. Follow the flow once and you'll get it — each step below is exactly what happens in the <a href="/studio.html" style="text-decoration:underline">Studio</a>.</p>
+  <div class="how reveal">
+    <div class="hcard"><span class="n">Step 1</span><b>📤 Upload your video</b><p>Drop any MP4/WebM clip. It never leaves your browser — nothing is uploaded to a server in this demo.</p></div>
+    <div class="hcard"><span class="n">Step 2</span><b>🧠 AI reads the scenes</b><p>Hit <b>Analyze</b>: the AI detects scene cuts, transcribes dialogue, and scores the emotion + energy of every part.</p></div>
+    <div class="hcard"><span class="n">Step 3</span><b>⭐ Key moments found</b><p>Funny mistakes, awkward silences, hype wins, plot twists — each flagged with its exact timestamp and a 🔥 score.</p></div>
+    <div class="hcard"><span class="n">Step 4</span><b>🎭 Get meme picks</b><p>For every moment you get matching memes, stickers, GIFs, reactions & sound effects. 🔥 = trending right now.</p></div>
+    <div class="hcard"><span class="n">Step 5</span><b>👆 Pick one you like</b><p>Click any suggestion — or grab one from the 🤳 Social feed, Library, or search by mood ("puppy" finds Doge!).</p></div>
+    <div class="hcard"><span class="n">Step 6</span><b>⏱️ Auto-sync timing</b><p>EditMate suggests the <b>best timestamp</b> to drop it — snapped to the reaction peak, e.g. mistake at 00:18 → pop at 00:18.2.</p></div>
+    <div class="hcard"><span class="n">Step 7</span><b>👀 Preview & publish</b><p>Watch it fire on the timeline, tweak if needed, then render in 16:9 / 9:16 / 1:1 and share to any app. That's the whole trick: <b>right element, right moment.</b></p></div>
+  </div>
+</div></section>
+
+<section id="example" style="padding-top:0"><div class="wrap">
+  <span class="kicker">LIVE EXAMPLE</span>
+  <h2>What does it look like? 👀</h2>
+  <div class="fcard reveal" style="margin-top:18px">
+    <p style="margin:0;line-height:2;font-size:15px">🎥 You upload a vlog. At <b>00:18</b> you flub a line and face-palm.<br>🧠 AI flags it: <b>"😅 Funny mistake @ 00:18"</b> — laughter peak detected.<br>🎭 It suggests: <b>💀 Skull meme + 🔊 Vine boom SFX</b>.<br>⏱️ Auto-sync picks <b>00:18.2</b> — right on the reaction, beat-snapped.<br>👀 You preview it, love it, hit <b>Place it</b> — done in 10 seconds.<br><br><a href="/studio.html" class="btn btn-pri btn-sm">Try this exact flow in the Studio →</a></p>
+  </div>
+</div></section>
+
+<section id="faq" style="padding-top:0"><div class="wrap">
+  <span class="kicker">QUESTIONS, ANSWERED</span>
+  <h2>New here? Start here 💡</h2>
+  <div class="reveal" style="margin-top:18px">
+    <details class="faq"><summary>📤 Where does my video go when I upload it?</summary><p>Nowhere. Your file stays inside your own browser — this demo has no video server. Pick the sample clip if you just want to explore.</p></details>
+    <details class="faq"><summary>🧠 Is it real AI?</summary><p>This demo <b>simulates</b> the analysis (scene cuts, transcription, emotion scores) so you can test the full flow today. A production version would plug in real video-AI models behind the same buttons.</p></details>
+    <details class="faq"><summary>⏱️ How does auto-sync pick the timestamp?</summary><p>It takes the moment's timestamp and nudges it to the reaction peak (+0.2s), dialogue pause and beat — so the meme lands <i>on</i> the funny, not before it. You can scrub the timeline to fine-tune.</p></details>
+    <details class="faq"><summary>🤳 Where do Social memes come from?</summary><p>🖼️ Templates load from Imgflip's trending API; the r/memes, r/dankmemes and r/wholesome tabs stream fresh Reddit posts (NSFW filtered). Categories and % match scores are computed in your browser.</p></details>
+    <details class="faq"><summary>🆓 What's free vs Premium?</summary><p><b>Free:</b> 3 meme placements per video, core library, watermarked preview. <b>Premium (₹799/mo):</b> unlimited placements, auto-sync + beat snapping, full marketplace, 4K no watermark. See <a href="/pricing.html" style="text-decoration:underline">Pricing</a>.</p></details>
+    <details class="faq"><summary>🎬 I placed a meme — now what?</summary><p>It appears as a marker on the timeline and pops over your video during preview. Export the timeline as JSON/EDL, or render the final video (16:9 YouTube, 9:16 Reels/Shorts/TikTok, 1:1 feed) and share it anywhere from the publish panel.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>🎬 <b style="color:#fff">EditMate AI v2</b> — right element, right moment. • front-end demo, simulated AI.</span><span>upload → read → suggest → sync → preview → publish ⚡ • <a href="/debug.html" style="text-decoration:underline">🛠 debug</a></span></div></footer>
+
+<div class="modal" id="payModal"><div class="modal-card"><div style="font-size:46px">⚡</div><h3>Premium = unlimited sync</h3><p style="color:#5b5240;font-size:14px">Free caps at 3 placements/video. Demo-upgrade for unlimited auto-sync + full library.</p><a href="/pricing.html" class="btn btn-pri" style="width:100%;display:block">Buy Premium — ₹799/mo →</a><br><br><button class="btn btn-sm" onclick="closeModal()">Keep Free</button></div></div>
+<div class="toast" id="toast"></div><div id="confetti"></div>
+
+
+
+<script src="/app.js" defer></script>
+</body>
+</html>

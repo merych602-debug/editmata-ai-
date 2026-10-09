@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EditMate AI — Meme library</title>
+<meta name="description" content="EditMate AI understands your video and finds the right meme, sticker or SFX at the right moment." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in"><div class="logo"><a href="/" style="display:flex;align-items:center;gap:10px"><div class="logo-mark">🎬</div> EditMate AI <small>V2 FRESH</small></a></div><div class="links"><a href="/">Home</a><a href="/studio.html">Studio</a><a href="/library.html" class="on">Library</a><a href="/social.html">🤳 Social</a><a href="/pricing.html">Pricing</a><a href="/feedback.html">Feedback</a></div><div style="display:flex;gap:10px"><a href="/studio.html" class="btn btn-pri btn-sm">✨ Try live demo</a></div></div></nav><div class="ticker"><span>✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp; ✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp;</span></div>
+
+<section id="library"><div class="wrap">
+  <span class="kicker">ASSET LIBRARY</span>
+  <h2>Memes, stickers, GIFs & SFX 🎨</h2>
+  <p class="sec-sub">The built-in Starter Pack — 120 trending memes, stickers, GIFs & sounds the Studio suggests from. Search by name or filter by type; anything here can be placed on your timeline with auto-sync. Premium unlocks the full marketplace.</p>
+  <input id="libSearch" placeholder="Search 120+ memes, sounds, stickers…" />
+  <div class="parade"><span>💀 😭 🗿 🧍 😏 🚽 🥤 🐕 🔨 📈 ↔️ 🙀 🔥 😲 🌀 🕶️ 💃 💖 ✊ 👧 🧠 ☕ 👏 📯 🔊 🎶 🗣️ 🚨 🏃 📳 🎺 💿 🥁 🔔 🪟 📱 🔵 🎮 🚀 🪙 🦗 🔥 🤯 🙄 🎮 ✨ 💯 ❤️‍🔥 🥺 💅 🫡 🔔 👍 ➕ 🏆 💪 👀 🥳 🤣 🥲 🫠 🤡 🥵 😳 🫣 😤 🙃 😴 </span></div>
+  <div class="lib-grid reveal" id="libGrid"></div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>🎬 <b style="color:#fff">EditMate AI v2</b> — right element, right moment. • front-end demo, simulated AI.</span><span>upload → read → suggest → sync → preview → publish ⚡ • <a href="/debug.html" style="text-decoration:underline">🛠 debug</a></span></div></footer>
+
+<div class="modal" id="payModal"><div class="modal-card"><div style="font-size:46px">⚡</div><h3>Premium = unlimited sync</h3><p style="color:#5b5240;font-size:14px">Free caps at 3 placements/video. Demo-upgrade for unlimited auto-sync + full library.</p><a href="/pricing.html" class="btn btn-pri" style="width:100%;display:block">Buy Premium — ₹799/mo →</a><br><br><button class="btn btn-sm" onclick="closeModal()">Keep Free</button></div></div>
+<div class="toast" id="toast"></div><div id="confetti"></div>
+
+
+
+<script src="/app.js" defer></script>
+</body>
+</html>

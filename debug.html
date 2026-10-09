@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EditMate AI — Auto-debug dashboard</title>
+<style>
+:root{--ink:#16130E;--paper:#FFFEF9;--lime:#B8F135;--yellow:#FFDE59;--pink:#FF6B9D}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,system-ui,sans-serif;background:#FFF6E8;color:var(--ink);padding:26px}
+.wrap{max-width:860px;margin:0 auto}
+.card{background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:20px;box-shadow:7px 7px 0 var(--ink);margin-bottom:16px}
+h1{font-family:"Space Grotesk",Inter,sans-serif;margin:0 0 4px}
+.ok{display:inline-block;background:var(--lime);border:2.5px solid var(--ink);border-radius:99px;padding:4px 14px;font-weight:800}
+.bad{display:inline-block;background:var(--pink);color:#fff;border:2.5px solid var(--ink);border-radius:99px;padding:4px 14px;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.stat{border:2.5px solid var(--ink);border-radius:12px;padding:10px;text-align:center;background:#fff}
+.stat b{font-size:24px;display:block}.stat span{font-size:11px;font-weight:700;color:#7a6f57}
+.err{border:2.5px solid var(--ink);border-radius:12px;padding:10px 12px;margin-top:9px;background:#FFF3D6;font-size:13px}
+.err code{display:block;white-space:pre-wrap;word-break:break-word;font-size:12px;margin-top:5px}
+.err small{color:#7a6f57;font-weight:700}
+button{border:3px solid var(--ink);border-radius:12px;padding:10px 16px;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--ink);background:var(--yellow);font-size:13px}
+button:active{transform:translate(2px,2px);box-shadow:none}
+a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>🛠 Auto-debug dashboard</h1>
+    <p style="color:#5b5240;margin:6px 0 0">Live backend status. Every request is guarded, every crash (server <i>or</i> browser) lands below automatically. <a href="/">← back to studio</a></p>
+    <div style="margin-top:12px"><span id="badge" class="ok">checking…</span></div>
+    <div class="grid">
+      <div class="stat"><b id="sUp">–</b><span>uptime (s)</span></div>
+      <div class="stat"><b id="sReq">–</b><span>requests served</span></div>
+      <div class="stat"><b id="sAssets">–</b><span>assets live</span></div>
+      <div class="stat"><b id="sErr">–</b><span>errors logged</span></div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:10px">
+      <button onclick="load()">↻ Refresh</button>
+      <button onclick="clearErrors()">🧹 Clear error log</button>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="margin:0 0 4px">Error log <small style="color:#7a6f57">(newest first, auto-captured)</small></h3>
+    <div id="errs"><p>loading…</p></div>
+  </div>
+</div>
+<script>
+async function load(){
+  try{
+    const h=await (await fetch('/api/health')).json();
+    document.getElementById('badge').className='ok';
+    document.getElementById('badge').textContent='● ONLINE v'+h.version;
+    document.getElementById('sUp').textContent=h.uptime_s;
+    document.getElementById('sReq').textContent=h.requests;
+    document.getElementById('sAssets').textContent=h.assets;
+    document.getElementById('sErr').textContent=h.errors_logged;
+  }catch(e){
+    document.getElementById('badge').className='bad';
+    document.getElementById('badge').textContent='● OFFLINE — watchdog will restart it';
+  }
+  try{
+    const d=await (await fetch('/api/errors?limit=50')).json();
+    document.getElementById('errs').innerHTML=d.errors.length?d.errors.map(x=>
+      '<div class="err"><small>'+x.ts+' • '+x.where+' • '+String(x.url||'').slice(0,80)+'</small><code>'+String(x.msg).replace(/</g,'&lt;').slice(0,600)+'</code></div>'
+    ).join(''):'<p>✨ Zero errors logged. The auto-debugger is bored (good).</p>';
+  }catch(e){document.getElementById('errs').innerHTML='<p>cannot reach backend</p>';}
+}
+async function clearErrors(){await fetch('/api/errors/clear',{method:'POST'});load();}
+load();setInterval(load,5000);
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# EditMate AI — ignore runtime data & logs
+data/server.log
+data/errors.jsonl
+data/watchdog.log
+data/watchdog.out.log
+__pycache__/
+*.pyc

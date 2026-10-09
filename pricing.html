@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EditMate AI — Pricing</title>
+<meta name="description" content="EditMate AI understands your video and finds the right meme, sticker or SFX at the right moment." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in"><div class="logo"><a href="/" style="display:flex;align-items:center;gap:10px"><div class="logo-mark">🎬</div> EditMate AI <small>V2 FRESH</small></a></div><div class="links"><a href="/">Home</a><a href="/studio.html">Studio</a><a href="/library.html">Library</a><a href="/social.html">🤳 Social</a><a href="/pricing.html" class="on">Pricing</a><a href="/feedback.html">Feedback</a></div><div style="display:flex;gap:10px"><a href="/studio.html" class="btn btn-pri btn-sm">✨ Try live demo</a></div></div></nav><div class="ticker"><span>✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp; ✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp;</span></div>
+
+<section id="pricing" style="padding-top:0"><div class="wrap">
+  <span class="kicker">BUSINESS MODEL</span>
+  <h2>Freemium that scales 💸</h2>
+  <p class="sec-sub">Pay online in seconds — UPI, cards, netbanking & wallets accepted. Prices in INR, GST included. 🧪 Demo checkout: no real money moves.</p>
+  <div class="price reveal">
+    <div class="pr"><h3>🆓 Free</h3><div class="amt">₹0</div><ul><li>3 AI placements / video</li><li>Core meme library</li><li>Manual preview</li><li>720p + watermark</li></ul><button class="btn" style="width:100%" onclick="setPlan('free')">Start free</button></div>
+    <div class="pr pop"><h3>⚡ Premium ⭐</h3><div class="amt">₹799<span style="font-size:14px;opacity:.6">/mo</span></div><ul><li>Unlimited AI suggestions</li><li>Auto-sync + beat snapping</li><li>Full marketplace</li><li>4K, no watermark</li></ul><button class="btn btn-lime" style="width:100%" onclick="openCheckout('premium')">Buy Premium →</button><p style="font-size:11.5px;color:#A9BC85;margin:8px 0 0">📱 UPI • 💳 Cards • 🏦 Netbanking • 👛 Wallets</p></div>
+    <div class="pr"><h3>👥 Team</h3><div class="amt">₹2,499<span style="font-size:14px;opacity:.6">/mo</span></div><ul><li>Shared libraries & kits</li><li>Roles + review</li><li>API + marketplace cut</li><li>Priority rendering</li></ul><button class="btn" style="width:100%" onclick="openCheckout('team')">Buy Team →</button><p style="font-size:11.5px;color:#A9BC85;margin:8px 0 0">📱 UPI • 💳 Cards • 🏦 Netbanking • 👛 Wallets</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>🎬 <b style="color:#fff">EditMate AI v2</b> — right element, right moment. • front-end demo, simulated AI.</span><span>upload → read → suggest → sync → preview → publish ⚡ • <a href="/debug.html" style="text-decoration:underline">🛠 debug</a></span></div></footer>
+
+<div class="modal" id="checkoutModal"><div class="modal-card" style="max-width:480px;text-align:left">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+    <h3 style="margin:0">💳 Checkout — <span id="coPlan">Premium</span></h3>
+    <button class="btn btn-sm" onclick="closeCheckout()">✕</button>
+  </div>
+  <p style="font-size:12.5px;color:#A9BC85;margin:8px 0">🧪 Demo checkout — no real money moves. Production plugs Razorpay/Stripe in here.</p>
+  <div id="coForm">
+    <div class="co-sum" id="coSummary"></div>
+    <div class="tabs" id="coMethods">
+      <button class="tab on" data-m="upi">📱 UPI</button><button class="tab" data-m="card">💳 Card</button><button class="tab" data-m="net">🏦 Netbanking</button><button class="tab" data-m="wallet">👛 Wallet</button>
+    </div>
+    <div id="coUpi">
+      <input id="coUpiId" placeholder="yourname@okhdfc" autocomplete="off" />
+      <p style="font-size:12px;color:#A9BC85;margin:0">Pay with GPay • PhonePe • Paytm • BHIM — approve the collect request in your app.</p>
+    </div>
+    <div id="coCard" style="display:none">
+      <input id="coCardNum" placeholder="Card number  •••• •••• •••• ••••" inputmode="numeric" maxlength="19" />
+      <input id="coCardName" placeholder="Name on card" />
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <input id="coCardExp" placeholder="Expiry MM/YY" maxlength="5" />
+        <input id="coCardCvv" placeholder="CVV" inputmode="numeric" maxlength="4" type="password" />
+      </div>
+      <p style="font-size:12px;color:#A9BC85;margin:0">Visa • Mastercard • RuPay • Amex accepted.</p>
+    </div>
+    <div id="coNet" style="display:none">
+      <select id="coBank">
+        <option value="">Choose your bank…</option>
+        <option>HDFC Bank</option><option>State Bank of India</option><option>ICICI Bank</option><option>Axis Bank</option><option>Kotak Mahindra</option><option>Punjab National Bank</option>
+      </select>
+      <p style="font-size:12px;color:#A9BC85;margin:0">You'll be redirected to your bank's secure page.</p>
+    </div>
+    <div id="coWallet" style="display:none">
+      <select id="coWalletPick">
+        <option value="">Choose wallet…</option>
+        <option>Paytm Wallet</option><option>PhonePe Wallet</option><option>Amazon Pay</option><option>Mobikwik</option>
+      </select>
+    </div>
+    <p id="coErr" style="color:#FF7A9D;font-size:13px;font-weight:700;display:none;margin:10px 0 0"></p>
+    <button class="btn btn-pri" id="coPay" style="width:100%;margin-top:12px">Pay securely →</button>
+    <p style="font-size:11.5px;color:#A9BC85;text-align:center;margin:8px 0 0">🔒 256-bit encrypted • PCI-DSS • GST invoice emailed</p>
+  </div>
+  <div id="coDone" style="display:none;text-align:center;padding:10px 0">
+    <div style="font-size:56px">✅</div>
+    <h3>Payment successful!</h3>
+    <p style="font-size:13.5px;color:#A9BC85" id="coDoneText"></p>
+    <a href="/studio.html" class="btn btn-pri" style="width:100%;display:block">Open Studio with Premium ⚡</a>
+  </div>
+</div></div>
+
+<div class="modal" id="payModal"><div class="modal-card"><div style="font-size:46px">⚡</div><h3>Premium = unlimited sync</h3><p style="color:#5b5240;font-size:14px">Free caps at 3 placements/video. Demo-upgrade for unlimited auto-sync + full library.</p><a href="/pricing.html" class="btn btn-pri" style="width:100%;display:block">Buy Premium — ₹799/mo →</a><br><br><button class="btn btn-sm" onclick="closeModal()">Keep Free</button></div></div>
+<div class="toast" id="toast"></div><div id="confetti"></div>
+
+
+
+<script src="/app.js" defer></script>
+<script>
+var CO_PLANS = {premium:{label:'⚡ Premium', price:799}, team:{label:'👥 Team', price:2499}};
+var coPlan = 'premium', coMethod = 'upi';
+function inr(n){ return '₹' + Number(n).toLocaleString('en-IN'); }
+function openCheckout(p){
+  coPlan = CO_PLANS[p] ? p : 'premium';
+  document.getElementById('coForm').style.display = 'block';
+  document.getElementById('coDone').style.display = 'none';
+  document.getElementById('coErr').style.display = 'none';
+  refreshCoSummary();
+  document.getElementById('checkoutModal').classList.add('show');
+}
+function closeCheckout(){ document.getElementById('checkoutModal').classList.remove('show'); }
+function refreshCoSummary(){
+  var pl = CO_PLANS[coPlan];
+  document.getElementById('coPlan').textContent = pl.label;
+  document.getElementById('coSummary').innerHTML = '<span>'+pl.label+' — monthly</span><b>'+inr(pl.price)+'/mo</b><span style="opacity:.65">GST included • cancel anytime</span><b>Total: '+inr(pl.price)+'</b>';
+  document.getElementById('coPay').textContent = 'Pay ' + inr(pl.price) + ' securely →';
+}
+document.getElementById('coMethods').addEventListener('click', function(e){
+  var b = e.target.closest ? e.target.closest('[data-m]') : null;
+  if(!b) return;
+  coMethod = b.getAttribute('data-m');
+  var btns = this.querySelectorAll('.tab');
+  for(var i=0;i<btns.length;i++) btns[i].classList.toggle('on', btns[i]===b);
+  ['upi','card','net','wallet'].forEach(function(m){
+    document.getElementById('co' + (m==='net'?'Net':m.charAt(0).toUpperCase()+m.slice(1))).style.display = (m===coMethod?'block':'none');
+  });
+  document.getElementById('coErr').style.display = 'none';
+});
+document.getElementById('coCardNum').addEventListener('input', function(){
+  this.value = this.value.replace(/\D/g,'').slice(0,16).replace(/(\d{4})(?=\d)/g,'$1 ');
+});
+document.getElementById('coPay').onclick = function(){
+  var err = document.getElementById('coErr'), msg = '';
+  if(coMethod==='upi'){
+    var v = document.getElementById('coUpiId').value.trim();
+    if(!/^[\w.\-]{2,}@[a-zA-Z]{2,}[\w]*$/.test(v)) msg = 'Enter a valid UPI ID, e.g. name@okhdfc.';
+  } else if(coMethod==='card'){
+    var num = document.getElementById('coCardNum').value.replace(/\s/g,'');
+    var exp = document.getElementById('coCardExp').value.trim();
+    var cvv = document.getElementById('coCardCvv').value.trim();
+    if(!/^\d{16}$/.test(num)) msg = 'Card number must be 16 digits.';
+    else if(document.getElementById('coCardName').value.trim()==='') msg = 'Enter the name on card.';
+    else if(!/^(0[1-9]|1[0-2])\/\d{2}$/.test(exp)) msg = 'Expiry must look like MM/YY.';
+    else if(!/^\d{3,4}$/.test(cvv)) msg = 'CVV must be 3–4 digits.';
+  } else if(coMethod==='net'){
+    if(!document.getElementById('coBank').value) msg = 'Choose your bank first.';
+  } else if(coMethod==='wallet'){
+    if(!document.getElementById('coWalletPick').value) msg = 'Choose a wallet first.';
+  }
+  if(msg){ err.textContent = '⚠️ ' + msg; err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  var btn = this; btn.disabled = true; btn.textContent = '⏳ Contacting bank…';
+  setTimeout(function(){
+    btn.disabled = false; refreshCoSummary();
+    document.getElementById('coForm').style.display = 'none';
+    var d = document.getElementById('coDone'); d.style.display = 'block';
+    document.getElementById('coDoneText').textContent = CO_PLANS[coPlan].label + ' activated for ' + inr(CO_PLANS[coPlan].price) + '/mo. Receipt sent to your email. Unlimited placements unlocked! 🎉';
+    try{ if(window.setPlan) setPlan('premium'); }catch(e){}
+    try{ if(window.toast) toast('Payment successful — Premium active ⚡'); }catch(e2){}
+  }, 1800);
+};
+document.getElementById('checkoutModal').addEventListener('click', function(e){ if(e.target && e.target.id==='checkoutModal') closeCheckout(); });
+</script>
+</body>
+</html>

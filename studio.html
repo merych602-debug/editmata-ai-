@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EditMate AI — Studio: upload, get memes, publish</title>
+<meta name="description" content="EditMate AI understands your video and finds the right meme, sticker or SFX at the right moment." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in"><div class="logo"><a href="/" style="display:flex;align-items:center;gap:10px"><div class="logo-mark">🎬</div> EditMate AI <small>V2 FRESH</small></a></div><div class="links"><a href="/">Home</a><a href="/studio.html" class="on">Studio</a><a href="/library.html">Library</a><a href="/social.html">🤳 Social</a><a href="/pricing.html">Pricing</a><a href="/feedback.html">Feedback</a></div><div style="display:flex;gap:10px"><a href="/studio.html" class="btn btn-pri btn-sm">✨ Try live demo</a></div></div></nav><div class="ticker"><span>✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp; ✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp;</span></div>
+
+<section id="demo" class="studioSec"><div class="wrap">
+  <span class="kicker" style="background:var(--yellow);color:var(--ink)">● LIVE DEMO STUDIO</span>
+  <h2>Try it on your own clip 🎛️</h2>
+  <p class="sec-sub">4 steps, testable today: load the sample or upload — AI finds moments and memes, you pick one, then publish anywhere.</p>
+  <div class="flow" id="flowSteps">
+    <span class="fstep on" data-s="1">1 📤 Upload</span><span class="fstep" data-s="2">2 🧠 AI analysis</span><span class="fstep" data-s="3">3 🎭 Pick & sync</span><span class="fstep" data-s="4">4 🚀 Preview & publish</span>
+  </div>
+  <div class="guide">🆕 <b>First time here? Do this:</b> ① press <b>🎥 Real clip</b> (or drop your own video) → ② press <b>🧠 Analyze</b> and watch the AI log → ③ click any <b>key moment</b>, then click a <b>meme pick</b> → ④ press <b>➕ Place it</b> and hit play — the meme pops over your video at the synced time. Free plan = 3 placements per video.</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>① Upload & preview 📁</h3>
+      <p class="d">MP4 / WebM — your file stays in this browser, never uploaded. No file handy? Press <b>🎥 Real clip</b> and analysis starts by itself.</p>
+      <div class="drop" id="drop">📁 <b>Drop video here or click to browse</b><br><span style="font-size:13px;opacity:.75">your file never leaves this browser</span><input type="file" id="file" accept="video/*" /></div>
+      <div class="rowbtns">
+        <button class="sbtn s-w" id="sampleBtn">🎥 Real clip: jellyfish (10s)</button>
+        <button class="sbtn s-y" id="analyzeBtn">🧠 Analyze with AI</button>
+        <button class="sbtn s-w" id="resetBtn">↺ Reset</button>
+      </div>
+      <div class="video-wrap"><video id="vid" controls playsinline crossorigin="anonymous"></video><div id="overlay"></div><div id="sfxToast">🔊 SFX</div></div>
+      <div class="timeline">
+        <div style="font-size:12px;font-weight:800;color:#CFC6AE;margin-bottom:8px">TIMELINE — <span style="color:var(--yellow)">●</span> AI moments &nbsp; 🟣 placed elements</div>
+        <div class="tl-track" id="track"><div class="tl-prog" id="prog"></div></div>
+        <div class="tl-times"><span id="tCur">00:00.0</span><span id="tInfo">no video loaded</span><span id="tDur">00:00.0</span></div>
+      </div>
+      <div class="rowbtns">
+        <button class="sbtn s-w" id="playBtn">▶ Play / pause</button>
+        <button class="sbtn s-w" id="exportBtn">⬇ JSON</button>
+        <button class="sbtn s-w" id="edlBtn">🧾 EDL .txt</button>
+      </div>
+      <div class="planbar"><span id="planLabel">🆓 Free: <span id="placeCount">0</span>/3 used</span><button class="sbtn s-y btn-sm" id="upgradeBtn" style="padding:8px 13px;font-size:12px">⚡ Go Premium</button></div>
+    </div>
+    <div class="panel">
+      <h3>② AI analysis 🧠</h3>
+      <p class="d">Watch each stage finish in the log — transcription → scene cuts → emotion scores → meme matching. Found moments list below with exact timestamps; click one to see its picks.</p>
+      <div class="log" id="log"><div>— ready. Upload or load the sample — meme suggestions appear automatically. —</div></div>
+      <h3 style="margin-top:16px">Key moments <span style="font-weight:400;color:#A79DC6;font-size:12px" id="mCount"></span></h3>
+      <div id="moments" style="max-height:225px;overflow:auto;margin-top:8px"><p style="color:#A79DC6;font-size:13px">Moments appear here after analysis.</p></div>
+    </div>
+    <div class="panel">
+      <h3>③ Pick your meme 🎭</h3>
+      <p class="d">120+ trending memes, stickers, GIFs & sounds. Click any pick and EditMate computes its best timestamp — then <b>➕ Place it</b> drops it on the timeline.</p>
+      <div class="tabs" id="filterTabs">
+        <button class="tab on" data-f="all">All</button><button class="tab" data-f="hot">🔥 Trending</button><button class="tab" data-f="meme">😂 Memes</button><button class="tab" data-f="sticker">⭐ Stickers</button><button class="tab" data-f="gif">🎞️ GIFs</button><button class="tab" data-f="sfx">🔊 SFX</button>
+        <input id="sugSearch" placeholder="🔍 Search 120+ memes, sounds, stickers…" />
+      </div>
+      <h3>Picks <span style="font-weight:400;color:#A79DC6;font-size:12px">click to auto-sync ⏱️</span></h3>
+      <div class="sug-grid" id="sugs" style="margin-top:8px"><p style="color:#A79DC6;font-size:13px">🤖 AI meme picks appear here — load a clip and hit <b>Analyze</b>, or just scroll: the demo auto-runs 👇</p></div>
+      <div class="syncbox" id="syncbox">
+        <b>⏱️ Auto-sync recommendation ⚡</b>
+        <p style="font-size:13px;color:#CFC6AE;margin:8px 0" id="syncReason"></p>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span style="font-size:13px;font-weight:800">Best:</span><code id="syncTime">00:18.2</code>
+          <button class="sbtn s-l" style="padding:8px 13px;font-size:12px" id="applyBtn">➕ Place it</button>
+          <button class="sbtn s-w" style="padding:8px 13px;font-size:12px" id="previewBtn">👀 Preview</button>
+        </div>
+      </div>
+      <div id="socImport">
+        <img id="socThumb" alt="social meme" />
+        <div style="flex:1"><b id="socName" style="font-size:13px">Social meme</b><br><span style="font-size:12px;color:#A9BC85">Imported from 🤳 Social — place it on your timeline ⏱</span></div>
+        <button class="sbtn s-l" style="padding:8px 13px;font-size:12px" id="socPlaceBtn">➕ Place it</button>
+      </div>
+    </div>
+    <div class="panel reveal" id="publishPanel">
+    <style>
+    #publishPanel .preset-note{font-size:12.5px;font-weight:800;color:#fff}
+    #publishPanel textarea{background:#0B0914;color:#EDE7F7;border:2px solid rgba(255,255,255,.2);font-size:13px;min-height:104px}
+    .plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+    @media(max-width:700px){.plat-grid{grid-template-columns:1fr 1fr}}
+    .plat{border:2.5px solid #000;border-radius:14px;padding:12px 8px;font-weight:800;font-size:13px;cursor:pointer;box-shadow:4px 4px 0 #000;color:var(--ink);font-family:"Space Grotesk",Inter,sans-serif;transition:.13s}
+    .plat:hover{transform:translateY(-2px)}
+    .plat small{display:block;font-weight:600;font-size:11px;opacity:.75;margin-top:3px}
+    #pubProgWrap{background:#0B0914;border:2px solid rgba(255,255,255,.2);border-radius:99px;height:16px;overflow:hidden;margin-top:10px;display:none}
+    #pubProg{height:100%;width:0%;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+    #pubDl{text-decoration:none}
+    </style>
+    <h3>④ Preview & publish 🚀 — post it to Instagram / YouTube / TikTok</h3>
+    <p class="d">Hit 👀 Preview above to watch placed memes fire, then pick a format, render with memes burned in, and share anywhere. Rendering needs a clip you uploaded yourself (sample links block export).</p>
+    <div class="rowbtns" style="margin-top:0">
+      <button class="sbtn s-y" data-a="16:9">📺 16:9 · YouTube</button>
+      <button class="sbtn s-w" data-a="9:16">📱 9:16 · Reels / Shorts / TikTok</button>
+      <button class="sbtn s-w" data-a="1:1">⬛ 1:1 · Feed</button>
+    </div>
+    <div class="rowbtns">
+      <button class="sbtn s-l" id="pubWrite">✨ Auto-write caption</button>
+      <button class="sbtn s-w" id="pubCopy">📋 Copy caption</button>
+    </div>
+    <textarea id="pubCap" rows="4" placeholder="Your AI caption + hashtags appear here…"></textarea>
+    <div class="rowbtns">
+      <button class="sbtn s-y" id="pubRender">🎬 Render video with memes</button>
+      <button class="sbtn s-w" id="pubStop" style="display:none">⏹ Stop</button>
+      <button class="sbtn s-l" id="pubShare">📤 Share to apps…</button>
+      <a class="sbtn s-w" id="pubDl" href="#" style="display:none">⬇ Download</a>
+    </div>
+    <div id="pubProgWrap"><div id="pubProg"></div></div>
+    <div class="plat-grid">
+      <button class="plat" data-plat="youtube" style="background:#FFDE59">▶ YouTube<small>open upload · caption copied</small></button>
+      <button class="plat" data-plat="instagram" style="background:#FF6B9D;color:#fff">📸 Instagram<small>open app/site · caption copied</small></button>
+      <button class="plat" data-plat="tiktok" style="background:#16130E;color:#fff">🎵 TikTok<small>open upload · caption copied</small></button>
+      <button class="plat" data-plat="x" style="background:#fff">𝕏 Post<small>prefilled post</small></button>
+      <button class="plat" data-plat="whatsapp" style="background:#51E08A">💬 WhatsApp<small>send caption now</small></button>
+      <button class="plat" data-plat="telegram" style="background:#3EDDFF">✈ Telegram<small>send caption now</small></button>
+    </div>
+  </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>🎬 <b style="color:#fff">EditMate AI v2</b> — right element, right moment. • front-end demo, simulated AI.</span><span>upload → analyze → pick → publish ⚡ • <a href="/debug.html" style="text-decoration:underline">🛠 debug</a></span></div></footer>
+
+<div class="modal" id="payModal"><div class="modal-card"><div style="font-size:46px">⚡</div><h3>Premium = unlimited sync</h3><p style="color:#5b5240;font-size:14px">Free caps at 3 placements/video. Demo-upgrade for unlimited auto-sync + full library.</p><a href="/pricing.html" class="btn btn-pri" style="width:100%;display:block">Buy Premium — ₹799/mo →</a><br><br><button class="btn btn-sm" onclick="closeModal()">Keep Free</button></div></div>
+<div class="toast" id="toast"></div><div id="confetti"></div>
+
+
+
+<script src="/app.js" defer></script>
+</body>
+</html>

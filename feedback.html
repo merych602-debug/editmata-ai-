@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EditMate AI — Feedback</title>
+<meta name="description" content="EditMate AI understands your video and finds the right meme, sticker or SFX at the right moment." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in"><div class="logo"><a href="/" style="display:flex;align-items:center;gap:10px"><div class="logo-mark">🎬</div> EditMate AI <small>V2 FRESH</small></a></div><div class="links"><a href="/">Home</a><a href="/studio.html">Studio</a><a href="/library.html">Library</a><a href="/social.html">🤳 Social</a><a href="/pricing.html">Pricing</a><a href="/feedback.html" class="on">Feedback</a></div><div style="display:flex;gap:10px"><a href="/studio.html" class="btn btn-pri btn-sm">✨ Try live demo</a></div></div></nav><div class="ticker"><span>✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp; ✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp;</span></div>
+
+<section id="feedback" style="padding-top:0"><div class="wrap">
+  <span class="kicker">REFINE V2 WITH FRIENDS</span>
+  <h2>What feels unclear? 🤔</h2>
+  <p class="sec-sub">Show a friend the demo, log their confusion here. Saved in this browser for your next iteration.</p>
+  <div class="feedback reveal">
+    <div class="fcard"><h3 style="margin-top:0">✍️ Log feedback</h3>
+      <input id="fbName" placeholder="Friend's name (e.g. Priya)" />
+      <select id="fbArea"><option>Confusing step: Upload</option><option>Confusing step: AI scene read</option><option>Confusing step: Suggestions</option><option>Confusing step: Auto-sync timing</option><option>Confusing step: Preview</option><option>Other / general</option></select>
+      <textarea id="fbText" rows="3" placeholder="What did they say?"></textarea>
+      <button class="btn btn-pri" style="width:100%" onclick="saveFeedback()">💾 Save note</button>
+    </div>
+    <div class="fcard"><h3 style="margin-top:0">🗒️ Notes for v2 (<span id="fbCount">0</span>)</h3><div id="fbList"><p style="color:#7a6f57;font-size:13px">No notes yet — go break the demo!</p></div>
+    <button class="btn btn-sm" onclick="clearFeedback()">Clear all</button></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>🎬 <b style="color:#fff">EditMate AI v2</b> — right element, right moment. • front-end demo, simulated AI.</span><span>upload → read → suggest → sync → preview → publish ⚡ • <a href="/debug.html" style="text-decoration:underline">🛠 debug</a></span></div></footer>
+
+<div class="modal" id="payModal"><div class="modal-card"><div style="font-size:46px">⚡</div><h3>Premium = unlimited sync</h3><p style="color:#5b5240;font-size:14px">Free caps at 3 placements/video. Demo-upgrade for unlimited auto-sync + full library.</p><a href="/pricing.html" class="btn btn-pri" style="width:100%;display:block">Buy Premium — ₹799/mo →</a><br><br><button class="btn btn-sm" onclick="closeModal()">Keep Free</button></div></div>
+<div class="toast" id="toast"></div><div id="confetti"></div>
+
+
+
+<script src="/app.js" defer></script>
+</body>
+</html>

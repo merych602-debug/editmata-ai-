@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EditMate AI — Social memes to edit</title>
+<meta name="description" content="Browse trending social memes and send any of them straight into the Studio to edit." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in"><div class="logo"><a href="/" style="display:flex;align-items:center;gap:10px"><div class="logo-mark">🎬</div> EditMate AI <small>V2 FRESH</small></a></div><div class="links"><a href="/">Home</a><a href="/studio.html">Studio</a><a href="/library.html">Library</a><a href="/social.html" class="on">🤳 Social</a><a href="/pricing.html">Pricing</a><a href="/feedback.html">Feedback</a></div><div style="display:flex;gap:10px"><a href="/studio.html" class="btn btn-pri btn-sm">✨ Try live demo</a></div></div></nav><div class="ticker"><span>✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp; ✨ AI READS YOUR VIDEO &nbsp;•&nbsp; 😂 FINDS THE FUNNY &nbsp;•&nbsp; ⏱️ TIMES THE MEME &nbsp;•&nbsp; 🎬 DROPS IT ON THE BEAT &nbsp;•&nbsp;</span></div>
+
+<section id="social"><div class="wrap">
+  <span class="kicker">SOCIAL MEME FEED</span>
+  <h2>Social memes, ready to edit 🤳</h2>
+  <p class="sec-sub">A <a href="https://www.memedroid.com/" target="_blank" rel="noopener" style="text-decoration:underline">memedroid-style</a> trending feed. Pick any meme → it lands in the Studio as a timed overlay on your video. Templates load live from the Imgflip API.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+    <input id="socSearch" placeholder="🔍 Search trending memes…" style="max-width:460px" />
+    <button class="btn btn-sm" id="socRefresh" type="button">↻ Refresh</button>
+  </div>
+  <div class="soc-srcs" id="socSrcs">
+    <button class="soc-chip on" data-s="imgflip">🖼️ Templates</button>
+    <button class="soc-chip" data-s="IndianDankMemes" data-tag="🇮🇳 Desi">🇮🇳 Desi</button>
+    <button class="soc-chip" data-s="bollywoodmemes" data-tag="🎬 Bollywood">🎬 Bollywood</button>
+    <button class="soc-chip" data-s="memes">🔥 r/memes</button>
+    <button class="soc-chip" data-s="dankmemes">💀 r/dankmemes</button>
+    <button class="soc-chip" data-s="wholesomememes">🥰 r/wholesome</button>
+  </div>
+  <p class="sec-sub" style="margin-top:10px">🧠 Smart search: exact phrase → synonym (e.g. <i>puppy → doge</i>) → fuzzy spelling — best matches float to the top with a % score. Templates come from Imgflip; the <b>r/</b> tabs stream fresh posts endlessly ♾️ <b>🇮🇳 Desi & 🎬 Bollywood</b> tabs bring Indian memes — like <a href="https://giphy.com/explore/funny-indian-memes" target="_blank" rel="noopener" style="text-decoration:underline">Giphy's funny-indian-memes</a> — ready to edit in your Studio.</p>
+  <div class="soc-cats" id="socCats"></div>
+  <div class="soc-grid reveal" id="socGrid"><p class="sec-sub">Loading trending memes…</p></div>
+  <div style="text-align:center;margin:20px 0 6px">
+    <p class="sec-sub" id="socCount"></p>
+    <button class="btn" id="socMore" style="display:none">⬇ Load more memes ♾️</button>
+  </div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>🎬 <b style="color:#fff">EditMate AI v2</b> — right element, right moment. • front-end demo, simulated AI.</span><span>upload → read → suggest → sync → preview → publish ⚡ • <a href="/debug.html" style="text-decoration:underline">🛠 debug</a></span></div></footer>
+
+<div class="modal" id="payModal"><div class="modal-card"><div style="font-size:46px">⚡</div><h3>Premium = unlimited sync</h3><p style="color:#5b5240;font-size:14px">Free caps at 3 placements/video. Demo-upgrade for unlimited auto-sync + full library.</p><a href="/pricing.html" class="btn btn-pri" style="width:100%;display:block">Buy Premium — ₹799/mo →</a><br><br><button class="btn btn-sm" onclick="closeModal()">Keep Free</button></div></div>
+<div class="toast" id="toast"></div><div id="confetti"></div>
+
+<script>
+(function(){
+  var grid = document.getElementById('socGrid');
+  var search = document.getElementById('socSearch');
+  var all = [];
+  function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; clearTimeout(t._h); t._h=setTimeout(function(){t.style.display='none';},2600); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  /* 🧠 similarity-search algorithm: exact phrase → synonym → substring → fuzzy */
+  function norm(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim(); }
+  function toks(s){ return norm(s).split(' ').filter(Boolean); }
+  function lev(a,b){
+    if(a===b) return 0;
+    var m=a.length,n=b.length;
+    if(!m) return n; if(!n) return m;
+    var row=[],i,j;
+    for(j=0;j<=n;j++) row[j]=j;
+    for(i=1;i<=m;i++){ var prev=row[0]; row[0]=i;
+      for(j=1;j<=n;j++){ var cur=row[j];
+        row[j]=Math.min(row[j]+1, row[j-1]+1, prev+(a[i-1]===b[j-1]?0:1));
+        prev=cur; } }
+    return row[n];
+  }
+  var SYN = {
+    funny:['laugh','lol','lmao','hilarious','haha','joke','comedy'],
+    laugh:['funny','lol','lmao','hilarious','haha'],
+    cat:['kitten','kitty','grumpy','kittycat'],
+    dog:['doge','puppy','pup','doggo'],
+    baby:['kid','child','success','yoda'],
+    money:['cash','rich','dollar','stonks','bills'],
+    success:['win','winner','kid','nailed'],
+    fail:['disaster','awkward','wrong','mistake','epicfail'],
+    awkward:['creepy','weird','uncomfortable','cringe'],
+    shocked:['surprised','wow','omg','gasp','shook'],
+    angry:['mad','rage','furious','triggered','annoyed'],
+    sad:['crying','cry','tears','depressed','upset'],
+    happy:['excited','cheerful','celebration','yay'],
+    love:['heart','romantic','bae','crush'],
+    boss:['office','work','manager','job','meeting'],
+    starwars:['yoda','vader','skywalker','jedi','yaddle'],
+    simpsons:['homer','bart','simpson'],
+    drake:['hotline','bling','no','yes'],
+    spongebob:['sponge','patrick','mocking','imagination'],
+    batman:['joker','slap','robin'],
+    trump:['president','america','trump'],
+    car:['drive','traffic','distracted','boyfriend'],
+    brain:['expanding','mind','galaxy','smart','genius'],
+    button:['choice','daily','struggle','two'],
+    bernie:['sanders','mittens','inauguration','onceagain']
+  };
+  function variants(t){
+    var out=[t];
+    for(var k in SYN){
+      if(k===t){ out=out.concat(SYN[k]); }
+      else if(SYN[k].indexOf(t)!==-1){ if(out.indexOf(k)===-1) out.push(k); out=out.concat(SYN[k]); }
+    }
+    return out;
+  }
+  function stem(w){ w=String(w); if(w.length>5&&w.slice(-3)==='ing') return w.slice(0,-3); if(w.length>4&&w.slice(-2)==='es') return w.slice(0,-2); if(w.length>3&&w.slice(-1)==='s') return w.slice(0,-1); return w; }
+  function similarity(name, qt){
+    if(!qt.length) return 0;
+    var nt = toks(name), full = norm(name), phrase = qt.join(' ');
+    if(phrase.length>1 && full.indexOf(phrase)!==-1) return 100;
+    var total=0;
+    for(var i=0;i<qt.length;i++){
+      var q=qt[i], best=0, vars=variants(q);
+      for(var j=0;j<nt.length;j++){
+        var n=nt[j];
+        if(n===q){ best=Math.max(best,3); }
+        else if(vars.indexOf(n)!==-1){ best=Math.max(best,2.4); }
+        else if(stem(n)===stem(q)){ best=Math.max(best,2.6); }
+        else if(q.length>2&&n.length>2&&(n.indexOf(q)!==-1||q.indexOf(n)!==-1)){ best=Math.max(best,2); }
+        else{
+          var maxd = q.length<=3?0:(q.length<=5?1:2);
+          if(maxd>0 && lev(q,n)<=maxd) best=Math.max(best,1.5);
+        }
+        if(best>=3) break;
+      }
+      total+=best;
+    }
+    return Math.round(total/(qt.length*3)*100);
+  }
+  /* 🗂️ auto-categories: every meme is classified by keywords in its name */
+  var CATS = [
+    {id:'funny',   label:'😂 Funny',         keys:['funny','laugh','lol','lmao','haha','hilarious','joke','comedy','rofl','humor','epic','laughing','crying laugh']},
+    {id:'animals', label:'🐾 Animals',        keys:['cat','kitten','kitty','grumpy','dog','doge','puppy','pup','doggo','cheems','bird','pigeon','penguin','monkey','frog','pepe','hamster','turtle','panda','dolphin','horse','goat','batman cat']},
+    {id:'react',   label:'😱 Reactions',      keys:['facepalm','shocked','surprised','pikachu','awkward','creepy','skeptical','fry','brace','disaster','crying','rage','nervous','side eye','squint','roll safe','scared','worried','panic','mocking','crying jordan','hide pain','harold','pain','button','buttons','choice']},
+    {id:'movies',  label:'🎬 Movies & TV',    keys:['star wars','yoda','vader','skywalker','jedi','anakin','obi','padme','batman','joker','spongebob','patrick','simpsons','homer','bart','office','michael scott','thrones','lotr','matrix','toy story','buzz','woody','dicaprio','leo','oprah','spiderman','marvel','thanos','potter','disney','wonka','grinch','gollum','jack sparrow','pirates','terminator','godfather','shining','jaws','jurassic','avengers','deadpool','shrek','minion','gru',' breaking bad','heisenberg','stranger','squid game','peaky','sheldon','big bang','friends','how i met','astronaut','space','nasa','bollywood','srk','shah rukh','salman','bhai','pushpa','bahubali','kgf','rajini','rajinikanth','allu arjun','prabhas','akshay','ajay','hrithik','ranveer','ranbir','alia','deepika','priyanka','katrina','anushka','aamir','amitabh','big b','dhoni','kohli','sachin','rohit','cricket','ipl','rcb','csk','mi','t20','world cup']},
+    {id:'gaming',  label:'🎮 Gaming',         keys:['mario','pokemon','pikachu','fortnite','minecraft','gamer','xbox','playstation','zelda','sonic','among us','uno','draw 25','creeper','gta','skyrim','overwatch','league','dota','fifa','controller','level up','game over','respawn']},
+    {id:'work',    label:'💼 Work & Office',  keys:['office','boss','work','meeting','job','monday','fired','manager','paycheck','promotion','coworker','business','interview','salary','overtime','deadline','karen','hr']},
+    {id:'money',   label:'💰 Money & Success',keys:['money','cash','rich','success','dollar','stonks','win','winner','bills','sales','profit','stonk','invest','crypto','bitcoin','rent','broke','sell','deal']},
+    {id:'life',    label:'❤️ Life & Love',    keys:['love','baby','kid','wedding','marriage','boyfriend','girlfriend','distracted','dating','friendship','family','pregnant','birthday','party','mother','dad','mom','grandma','teacher','school','exam','sleep','monday blues','diet','gym','shaadi','rishta','sharma','aunty','uncle','padosi','jugaad','chai','samosa','rickshaw','upsc','iit','jee','neet','boards','marks','mummy','papa','sasural','naukri','emi','salary']},
+    {id:'poli',    label:'🏛️ Politics & News',keys:['trump','biden','bernie','sanders','obama','president','america','news','fake news','government','vote','election','politics','senator','white house','putin','modi','bjp','congress','rahul','gandhi','kejriwal','aap','yogi']}
+  ];
+  var CATLABEL = {}; CATS.forEach(function(c){ CATLABEL[c.id]=c.label; });
+  var activeCat = 'all';
+  function catsFor(name){
+    var n = ' ' + norm(name) + ' ';
+    var out = [];
+    CATS.forEach(function(c){
+      for(var i=0;i<c.keys.length;i++){
+        if(n.indexOf(' '+c.keys[i]+' ')!==-1 || n.indexOf(c.keys[i])!==-1 && c.keys[i].length>4){ out.push(c.id); break; }
+      }
+    });
+    /* keyword-substring pass for short keys on token level */
+    if(!out.length){
+      var t = toks(name);
+      CATS.forEach(function(c){
+        for(var i=0;i<c.keys.length;i++){
+          var k = c.keys[i];
+          for(var j=0;j<t.length;j++){ if(t[j]===k || (k.length>4 && t[j].indexOf(k)!==-1)){ out.push(c.id); break; } }
+          if(out.indexOf(c.id)!==-1) break;
+        }
+      });
+    }
+    if(!out.length) out.push('funny');
+    return out;
+  }
+  function renderCats(){
+    var box = document.getElementById('socCats');
+    var html = '<button class="soc-chip'+(activeCat==='all'?' on':'')+'" data-c="all">✨ All ('+all.length+')</button>';
+    CATS.forEach(function(c){
+      var n = all.filter(function(m){ return m.cats.indexOf(c.id)!==-1; }).length;
+      if(!n) return;
+      html += '<button class="soc-chip'+(activeCat===c.id?' on':'')+'" data-c="'+c.id+'">'+c.label+' ('+n+')</button>';
+    });
+    box.innerHTML = html;
+  }
+  document.getElementById('socCats').addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('.soc-chip') : null;
+    if(!b) return;
+    activeCat = b.getAttribute('data-c');
+    renderCats(); render();
+  });
+  function render(){
+    var qt = toks(search.value||'');
+    var pool = (activeCat==='all') ? all : all.filter(function(m){ return m.cats.indexOf(activeCat)!==-1; });
+    var list;
+    if(!qt.length){ list = pool.slice(0,60).map(function(m){ return {m:m, s:0}; }); }
+    else{
+      list = pool.map(function(m){ return {m:m, s:similarity(m.name, qt)}; })
+        .filter(function(x){ return x.s>=25; })
+        .sort(function(a,b){ return b.s-a.s; })
+        .slice(0,60);
+      if(!list.length){
+        list = pool.map(function(m){ return {m:m, s:similarity(m.name, qt)}; })
+          .sort(function(a,b){ return b.s-a.s; }).slice(0,8);
+      }
+    }
+    grid.innerHTML = list.map(function(x){
+      var m=x.m;
+      var badge = qt.length ? '<span class="soc-match">🧠 '+x.s+'% match</span>' : '';
+      var tags = '<span class="soc-tags"><i class="src">'+esc(m.src||'🖼️ Templates')+'</i>' + m.cats.map(function(c){ return '<i>'+CATLABEL[c]+'</i>'; }).join('') + '</span>';
+      var media = m.anim
+        ? '<video src="'+esc(m.anim)+'" autoplay muted loop playsinline preload="metadata"></video>'
+        : '<img loading="lazy" src="'+esc(m.url)+'" alt="'+esc(m.name)+'"/>';
+      return '<div class="soc-card">' + media
+        + badge + '<b>'+esc(m.name)+'</b>' + tags
+        + '<button class="sbtn s-l soc-use" data-id="'+m.id+'">🎬 Edit in Studio →</button></div>';
+    }).join('') || '<p class="sec-sub">No matches — try another search.</p>';
+  }
+  grid.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('.soc-use') : null;
+    if(!b) return;
+    var m = all.find(function(x){ return x.id === b.getAttribute('data-id'); });
+    if(!m) return;
+    try{ localStorage.setItem('editmate_social_meme', JSON.stringify({url:m.url, name:m.name, anim:m.anim||''})); }catch(err){}
+    toast('📥 "'+m.name+'" sent to Studio — pick its timing there ⏱');
+    setTimeout(function(){ location.href = '/studio.html'; }, 700);
+  });
+  search.addEventListener('input', render);
+  /* fetch with a hard timeout so the UI never hangs on "Loading…" */
+  function fetchJSON(url, ms){
+    ms = ms || 9000;
+    var timer = null, ctrl = null, opts = {};
+    try{
+      if(window.AbortController){
+        ctrl = new AbortController(); opts.signal = ctrl.signal;
+        timer = setTimeout(function(){ try{ ctrl.abort(); }catch(e){} }, ms);
+      } else {
+        timer = setTimeout(function(){}, ms);
+      }
+    }catch(e){}
+    function done(){ if(timer) clearTimeout(timer); }
+    return fetch(url, opts).then(function(r){ done(); if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }, function(e){ done(); throw e; });
+  }
+  window.socRetry = function(){ if(!loading) loadCur(false); };
+  var curSrc = 'imgflip', curTag = '🖼️ Templates', redditAfter = null, loading = false;
+  function cacheKey(s){ return 'editmate_cache_' + s; }
+  function saveCache(sub, items){ try{ localStorage.setItem(cacheKey(sub), JSON.stringify(items.slice(0,80))); }catch(e){} }
+  function readCache(sub){ try{ var v = JSON.parse(localStorage.getItem(cacheKey(sub))||'null'); return (v && v.length) ? v : null; }catch(e){ return null; } }
+  /* silent background prefetch so tabs open instantly next time */
+  function prefetch(sub, tag){
+    fetchJSON('https://meme-api.com/gimme/'+sub+'/40', 25000).then(function(d){
+      var items = parseMemeApi(d, sub, tag);
+      if(items.length) saveCache(sub, items);
+    }).catch(function(){});
+  }
+  /* parse our /api/gag proxy shape → normalized items */
+  function parseGag(d, sub, tag){
+    var arr = (d && d.items) || [], out = [];
+    arr.forEach(function(it){
+      if(!it || !it.u) return;
+      var title = String(it.t||'Untitled meme');
+      out.push({name:title, url:it.u, anim:it.anim||'', cats:catsFor(title), src:tag, gag:it.id||''});
+    });
+    return out;
+  }
+  function parseMemeApi(d, sub, tag){
+    var arr = (d && d.memes) || [], out = [];
+    arr.forEach(function(p){
+      if(!p || p.nsfw) return;
+      var img = String(p.url||'');
+      if(!/^https?:\/\//.test(img) || !/\.(jpg|jpeg|png|gif|webp)(\?|$)/i.test(img)) return;
+      var title = String(p.title||'Untitled meme');
+      out.push({name:title, url:img, cats:catsFor(title), src:tag});
+    });
+    return out;
+  }
+  /* parse old.reddit.com JSON shape → normalized items */
+  function parseReddit(d, sub, tag){
+    var kids = (d && d.data && d.data.children) || [], out = [];
+    kids.forEach(function(k){
+      var p = k.data || {};
+      if(!p || p.over_18 || p.is_video || p.is_gallery) return;
+      var u = String(p.url||'').replace(/&amp;/g,'&');
+      if(!/^https?:\/\//.test(u)) return;
+      if(!(/\.(jpg|jpeg|png|gif|webp)(\?|$)/i.test(u))){
+        try{
+          var imgs = p.preview && p.preview.images;
+          if(imgs && imgs.length && imgs[0].source) u = String(imgs[0].source.url||'').replace(/&amp;/g,'&');
+          else return;
+        }catch(e){ return; }
+        if(!/^https?:\/\//.test(u)) return;
+      }
+      var title = String(p.title||'Untitled meme');
+      out.push({name:title, url:u, cats:catsFor(title), src:tag});
+    });
+    return out;
+  }
+  function loadReddit(sub, more){
+    if(loading) return; loading = true;
+    var btn = document.getElementById('socMore');
+    /* stale-while-revalidate: paint saved memes INSTANTLY, refresh behind */
+    if(!more){
+      var quick = readCache(sub);
+      if(quick && quick.length){
+        all = quick; activeCat='all'; renderCats(); render();
+        setCount('Showing ' + all.length + ' saved ' + curTag + ' memes — refreshing fresh ones… ⏳');
+        showMore(false);
+      } else {
+        grid.innerHTML = '<p class="sec-sub">Loading fresh '+curTag+' posts…</p>';
+      }
+    }
+    btn.textContent = '⏳ Loading…';
+    var paintedCache = (!more && all.length > 0);
+    /* our own /api/gag proxy serves 9gag tag feeds (reachable + CORS-free) — first route */
+    var GAG = {IndianDankMemes:['desi','india'], bollywoodmemes:['bollywood','india'],
+               memes:['memes','funny'], dankmemes:['dankmemes','dank-memes'],
+               wholesomememes:['wholesomememes','wholesome']};
+    var rdURL = 'https://old.reddit.com/r/'+sub+'/hot.json?limit=40&raw_json=1';
+    var attempts = [];
+    var gtags = GAG[sub] || [];
+    if(gtags.length){
+      var gi = more ? (((window.__gagIdx && window.__gagIdx[sub]) || 0) + 1) % gtags.length : 0;
+      window.__gagIdx = window.__gagIdx || {}; window.__gagIdx[sub] = gi;
+      attempts.push({url:'/api/gag?tag='+gtags[gi], parse:parseGag, ms:15000});
+    }
+    attempts.push({url:'https://meme-api.com/gimme/'+sub+'/50', parse:parseMemeApi, ms:25000});
+    attempts.push({url:'https://api.allorigins.win/raw?url='+encodeURIComponent(rdURL), parse:parseReddit, ms:18000});
+    attempts.push({url:rdURL, parse:parseReddit, ms:12000});
+    function finish(items, fromCache){
+      var seen = {};
+      all.forEach(function(m){ seen[m.url]=1; });
+      var fresh = 0;
+      items.forEach(function(it, i){
+        if(seen[it.url]) return; seen[it.url]=1;
+        it.id = (it.gag ? 'gag_'+it.gag : 'rd_'+sub+'_'+all.length+'_'+i);
+        all.push(it); fresh++;
+      });
+      loading = false;
+      btn.textContent = '⬇ Load more memes ♾️';
+      if(!more && !paintedCache){ activeCat='all'; }
+      if(all.length && !fromCache) saveCache(sub, all);
+      renderCats(); render();
+      setCount('Showing ' + all.length + ' ' + curTag + ' memes' + (fromCache ? ' (offline — saved version)' : ' (+' + fresh + ' fresh)') + ' — keep hitting load, it never ends ♾️');
+      showMore(!fromCache);
+    }
+    function failAll(){
+      loading = false;
+      btn.textContent = '⬇ Load more memes ♾️';
+      var cached = readCache(sub);
+      if(cached && !all.length){
+        all = cached; activeCat='all'; renderCats(); render();
+        setCount('Showing ' + all.length + ' saved ' + curTag + ' memes (offline mode) — reconnect and hit Refresh for fresh ones.');
+        toast('📴 Offline — showing your saved memes');
+      } else {
+        var hadCache = !!readCache(sub);
+        var msg = hadCache
+          ? '⚠️ Fresh stream is slow/blocked — showing your saved ' + curTag + ' memes above. Hit retry; no VPN needed, it usually connects in a few tries.'
+          : '⚠️ ' + curTag + ' stream is unreachable right now (all 3 routes failed). The free meme APIs are slow or blocked on this network — no VPN needed, just retry in a bit.';
+        if(!more || !all.length){ grid.innerHTML = '<p class="sec-sub">'+msg+'</p><button class="btn btn-sm" onclick="socRetry()">↻ Try again (no VPN needed)</button>'; setCount(''); }
+        else { toast(msg); }
+      }
+    }
+    (function tryNext(i){
+      if(i >= attempts.length){ failAll(); return; }
+      if(!more && !(all.length && i===0)) setCount('Contacting ' + curTag + ' stream… (route ' + (i+1) + '/' + attempts.length + ') — free APIs can take 10–20s cold');
+      fetchJSON(attempts[i].url, attempts[i].ms).then(function(d){
+        var items = attempts[i].parse(d, sub, curTag);
+        if(!items.length && !(more && all.length)) throw new Error('empty');
+        if(!items.length && more && all.length){ finish([], false); return; }
+        finish(items, false);
+      }).catch(function(){ tryNext(i+1); });
+    })(0);
+  }
+  function setCount(t){ document.getElementById('socCount').textContent = t||''; }
+  function showMore(v){ document.getElementById('socMore').style.display = v ? 'inline-block' : 'none'; }
+  function redditImg(p){
+    if(!p || p.over_18 || p.is_video || p.is_gallery) return null;
+    var u = String(p.url||'').replace(/&amp;/g,'&');
+    if((p.post_hint==='image'||/\.(jpg|jpeg|png|gif|webp)(\?|$)/i.test(u)) && /^https?:\/\//.test(u)) return u;
+    try{
+      var imgs = p.preview && p.preview.images;
+      if(imgs && imgs.length && imgs[0].source){
+        var s = String(imgs[0].source.url||'').replace(/&amp;/g,'&');
+        if(/^https?:\/\//.test(s)) return s;
+      }
+    }catch(e){}
+    return null;
+  }
+  function loadTemplates(){
+    if(loading) return; loading = true;
+    grid.innerHTML = '<p class="sec-sub">Loading trending templates…</p>';
+    showMore(false); setCount('');
+    fetchJSON('https://api.imgflip.com/get_memes').then(function(d){
+      all = ((d && d.data && d.data.memes) || []).map(function(m){ return {id:String(m.id), name:m.name, url:m.url, cats:catsFor(m.name), src:'🖼️ Templates'}; });
+      if(!all.length) throw 0;
+      loading = false;
+      activeCat='all'; renderCats(); render();
+      setCount('Showing all ' + all.length + ' trending templates ♾️ switch to an r/ tab for an endless stream');
+      /* warm the Desi cache in background so 🇮🇳 opens instantly */
+      setTimeout(function(){ if(!readCache('IndianDankMemes')) prefetch('IndianDankMemes','🇮🇳 Desi'); }, 1500);
+    }).catch(function(){
+      loading = false;
+      grid.innerHTML = '<p class="sec-sub">⚠️ Could not reach the meme API (offline?). Check your connection and retry.</p><button class="btn btn-sm" onclick="socRetry()">↻ Try again</button>';
+    });
+  }
+  function loadCur(more){ if(curSrc==='imgflip'){ loadTemplates(); } else { loadReddit(curSrc, !!more); } }
+  document.getElementById('socSrcs').addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('[data-s]') : null;
+    if(!b || loading) return;
+    curSrc = b.getAttribute('data-s');
+    curTag = b.getAttribute('data-tag') || ('🔥 r/' + curSrc);
+    redditAfter = null; all = []; activeCat = 'all';
+    var btns = document.querySelectorAll('#socSrcs .soc-chip');
+    for(var i=0;i<btns.length;i++) btns[i].classList.toggle('on', btns[i]===b);
+    setCount(''); showMore(false);
+    loadCur(false);
+  });
+  document.getElementById('socRefresh').onclick = function(){ redditAfter=null; if(curSrc!=='imgflip'){ all=[]; } loadCur(false); };
+  document.getElementById('socMore').onclick = function(){ loadCur(true); };
+  loadCur(false);
+})();
+</script>
+<script src="/app.js" defer></script>
+</body>
+</html>

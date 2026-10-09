@@ -1,0 +1,1397 @@
+[
+ {
+  "id": "skull",
+  "name": "Skull (vine boom)",
+  "type": "meme",
+  "emoji": "💀",
+  "vibe": [
+   "funny",
+   "fail",
+   "shock"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "cry",
+  "name": "Crying laugh",
+  "type": "meme",
+  "emoji": "😭",
+  "vibe": [
+   "funny",
+   "awkward",
+   "fail"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "bruh",
+  "name": "Bruh moment",
+  "type": "meme",
+  "emoji": "😐",
+  "vibe": [
+   "awkward",
+   "fail"
+  ],
+  "hot": false,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "shock",
+  "name": "Shocked",
+  "type": "meme",
+  "emoji": "😱",
+  "vibe": [
+   "shock"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "gigachad",
+  "name": "Gigachad (sigma edit)",
+  "type": "meme",
+  "emoji": "🗿",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "npc",
+  "name": "NPC (TikTok live)",
+  "type": "meme",
+  "emoji": "🧍",
+  "vibe": [
+   "awkward",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "rizz",
+  "name": "Rizz (W rizz)",
+  "type": "meme",
+  "emoji": "😏",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "skibidi",
+  "name": "Skibidi",
+  "type": "meme",
+  "emoji": "🚽",
+  "vibe": [
+   "funny",
+   "hype"
+  ],
+  "hot": true,
+  "src": "TikTok • Shorts"
+ },
+ {
+  "id": "grimace",
+  "name": "Grimace Shake",
+  "type": "meme",
+  "emoji": "🥤",
+  "vibe": [
+   "shock",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "doge",
+  "name": "Doge (much wow)",
+  "type": "meme",
+  "emoji": "🐕",
+  "vibe": [
+   "funny",
+   "win"
+  ],
+  "hot": true,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "bonk",
+  "name": "Bonk!",
+  "type": "meme",
+  "emoji": "🔨",
+  "vibe": [
+   "funny"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "stonks",
+  "name": "Stonks",
+  "type": "meme",
+  "emoji": "📈",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "drake",
+  "name": "Drake yes-no",
+  "type": "meme",
+  "emoji": "↔️",
+  "vibe": [
+   "funny"
+  ],
+  "hot": false,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "catfight",
+  "name": "Woman vs Cat",
+  "type": "meme",
+  "emoji": "🙀",
+  "vibe": [
+   "funny",
+   "awkward"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "thisfine",
+  "name": "This Is Fine",
+  "type": "meme",
+  "emoji": "🔥",
+  "vibe": [
+   "fail",
+   "funny"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "pikachu",
+  "name": "Pikachu face",
+  "type": "meme",
+  "emoji": "😲",
+  "vibe": [
+   "shock",
+   "funny"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "ohio",
+  "name": "Only in Ohio",
+  "type": "meme",
+  "emoji": "🌀",
+  "vibe": [
+   "funny",
+   "shock"
+  ],
+  "hot": true,
+  "src": "TikTok"
+ },
+ {
+  "id": "bateman",
+  "name": "Bateman (sigma grindset)",
+  "type": "meme",
+  "emoji": "🕶️",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "wednesday",
+  "name": "Wednesday dance",
+  "type": "meme",
+  "emoji": "💃",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "barbie",
+  "name": "Barbie",
+  "type": "meme",
+  "emoji": "💖",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "successkid",
+  "name": "Success Kid",
+  "type": "meme",
+  "emoji": "✊",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "disastergirl",
+  "name": "Disaster Girl",
+  "type": "meme",
+  "emoji": "👧",
+  "vibe": [
+   "fail",
+   "funny"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "rollsafe",
+  "name": "Roll Safe",
+  "type": "meme",
+  "emoji": "🧠",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "changemind",
+  "name": "Change My Mind",
+  "type": "meme",
+  "emoji": "☕",
+  "vibe": [
+   "funny",
+   "awkward"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "clap",
+  "name": "Clap SFX",
+  "type": "sfx",
+  "emoji": "👏",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "airhorn",
+  "name": "Airhorn",
+  "type": "sfx",
+  "emoji": "📯",
+  "vibe": [
+   "hype",
+   "win",
+   "shock"
+  ],
+  "hot": false,
+  "src": "TikTok • Shorts"
+ },
+ {
+  "id": "boomSfx",
+  "name": "Vine boom",
+  "type": "sfx",
+  "emoji": "🔊",
+  "vibe": [
+   "fail",
+   "shock",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "ohno",
+  "name": "Oh No song",
+  "type": "sfx",
+  "emoji": "🎶",
+  "vibe": [
+   "fail",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "bruhsfx",
+  "name": "Bruh sound",
+  "type": "sfx",
+  "emoji": "🗣️",
+  "vibe": [
+   "fail",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Shorts"
+ },
+ {
+  "id": "fbi",
+  "name": "FBI Open Up",
+  "type": "sfx",
+  "emoji": "🚨",
+  "vibe": [
+   "shock",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "run",
+  "name": "Run! (vine)",
+  "type": "sfx",
+  "emoji": "🏃",
+  "vibe": [
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Shorts"
+ },
+ {
+  "id": "beep",
+  "name": "Censor beep",
+  "type": "sfx",
+  "emoji": "📳",
+  "vibe": [
+   "funny"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "trombone",
+  "name": "Sad trombone",
+  "type": "sfx",
+  "emoji": "🎺",
+  "vibe": [
+   "fail"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "scratch",
+  "name": "Record scratch",
+  "type": "sfx",
+  "emoji": "💿",
+  "vibe": [
+   "awkward",
+   "shock"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "dramatic",
+  "name": "Dramatic dum",
+  "type": "sfx",
+  "emoji": "🥁",
+  "vibe": [
+   "shock"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "bong",
+  "name": "Taco Bell bong",
+  "type": "sfx",
+  "emoji": "🔔",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "winerror",
+  "name": "Windows error",
+  "type": "sfx",
+  "emoji": "🪟",
+  "vibe": [
+   "fail",
+   "funny"
+  ],
+  "hot": false,
+  "src": "Shorts"
+ },
+ {
+  "id": "buzz",
+  "name": "Phone buzz",
+  "type": "sfx",
+  "emoji": "📱",
+  "vibe": [
+   "shock"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "discord",
+  "name": "Discord ping",
+  "type": "sfx",
+  "emoji": "🔵",
+  "vibe": [
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "oof",
+  "name": "Roblox oof",
+  "type": "sfx",
+  "emoji": "🎮",
+  "vibe": [
+   "fail",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Shorts"
+ },
+ {
+  "id": "eject",
+  "name": "Ejected (sus)",
+  "type": "sfx",
+  "emoji": "🚀",
+  "vibe": [
+   "funny",
+   "shock"
+  ],
+  "hot": true,
+  "src": "TikTok"
+ },
+ {
+  "id": "coin",
+  "name": "Coin (Mario)",
+  "type": "sfx",
+  "emoji": "🪙",
+  "vibe": [
+   "win"
+  ],
+  "hot": true,
+  "src": "Shorts • Reels"
+ },
+ {
+  "id": "crickets",
+  "name": "Crickets",
+  "type": "sfx",
+  "emoji": "🦗",
+  "vibe": [
+   "awkward"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "fire",
+  "name": "Fire sticker",
+  "type": "sticker",
+  "emoji": "🔥",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "pop",
+  "name": "Mind-blown GIF",
+  "type": "gif",
+  "emoji": "🤯",
+  "vibe": [
+   "shock",
+   "win"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "sideye",
+  "name": "Side-eye GIF",
+  "type": "gif",
+  "emoji": "🙄",
+  "vibe": [
+   "awkward"
+  ],
+  "hot": false,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "gg",
+  "name": "GG sticker",
+  "type": "sticker",
+  "emoji": "🎮",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Shorts • Reels"
+ },
+ {
+  "id": "tada",
+  "name": "Tada sparkle",
+  "type": "sticker",
+  "emoji": "✨",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "hundred",
+  "name": "100 sticker",
+  "type": "sticker",
+  "emoji": "💯",
+  "vibe": [
+   "win"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "heartfire",
+  "name": "Heart on fire",
+  "type": "sticker",
+  "emoji": "❤️‍🔥",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "pleading",
+  "name": "Pleading",
+  "type": "sticker",
+  "emoji": "🥺",
+  "vibe": [
+   "funny",
+   "awkward"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "nails",
+  "name": "Slay nails",
+  "type": "sticker",
+  "emoji": "💅",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "salute",
+  "name": "Salute",
+  "type": "sticker",
+  "emoji": "🫡",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "bell",
+  "name": "Subscribe bell",
+  "type": "sticker",
+  "emoji": "🔔",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "YouTube • Shorts"
+ },
+ {
+  "id": "like",
+  "name": "Like button",
+  "type": "sticker",
+  "emoji": "👍",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "YouTube • Reels • Shorts"
+ },
+ {
+  "id": "follow",
+  "name": "Follow +",
+  "type": "sticker",
+  "emoji": "➕",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "trophy",
+  "name": "Champion",
+  "type": "sticker",
+  "emoji": "🏆",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "muscle",
+  "name": "Beast mode",
+  "type": "sticker",
+  "emoji": "💪",
+  "vibe": [
+   "hype"
+  ],
+  "hot": false,
+  "src": "Shorts • Reels"
+ },
+ {
+  "id": "eyes",
+  "name": "Watching you",
+  "type": "sticker",
+  "emoji": "👀",
+  "vibe": [
+   "shock",
+   "awkward"
+  ],
+  "hot": false,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "party",
+  "name": "Party",
+  "type": "sticker",
+  "emoji": "🥳",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "laugh",
+  "name": "Rolling laugh GIF",
+  "type": "gif",
+  "emoji": "🤣",
+  "vibe": [
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "pain",
+  "name": "Smile through pain GIF",
+  "type": "gif",
+  "emoji": "🥲",
+  "vibe": [
+   "awkward",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "melt",
+  "name": "Melting GIF",
+  "type": "gif",
+  "emoji": "🫠",
+  "vibe": [
+   "awkward",
+   "fail"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "clown",
+  "name": "Clown GIF",
+  "type": "gif",
+  "emoji": "🤡",
+  "vibe": [
+   "fail",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Shorts"
+ },
+ {
+  "id": "spicy",
+  "name": "Spicy take GIF",
+  "type": "gif",
+  "emoji": "🥵",
+  "vibe": [
+   "hype",
+   "shock"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "caught",
+  "name": "Caught GIF",
+  "type": "gif",
+  "emoji": "😳",
+  "vibe": [
+   "shock",
+   "awkward"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "peek",
+  "name": "Peeking GIF",
+  "type": "gif",
+  "emoji": "🫣",
+  "vibe": [
+   "shock",
+   "awkward"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "locked",
+  "name": "Locked in GIF",
+  "type": "gif",
+  "emoji": "😤",
+  "vibe": [
+   "hype"
+  ],
+  "hot": false,
+  "src": "Shorts • Reels"
+ },
+ {
+  "id": "fine",
+  "name": "Fine GIF",
+  "type": "gif",
+  "emoji": "🙃",
+  "vibe": [
+   "awkward",
+   "funny"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "sleepy",
+  "name": "Boring GIF",
+  "type": "gif",
+  "emoji": "😴",
+  "vibe": [
+   "funny",
+   "awkward"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "aura",
+  "name": "Aura +1000",
+  "type": "meme",
+  "emoji": "💫",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "cook",
+  "name": "Let him cook",
+  "type": "meme",
+  "emoji": "👨‍🍳",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "mainchar",
+  "name": "Main character",
+  "type": "meme",
+  "emoji": "🎬",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": false,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "canon",
+  "name": "Canon event",
+  "type": "meme",
+  "emoji": "🕸️",
+  "vibe": [
+   "funny",
+   "shock"
+  ],
+  "hot": false,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "delulu",
+  "name": "Delulu",
+  "type": "meme",
+  "emoji": "🤪",
+  "vibe": [
+   "funny"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "pookie",
+  "name": "Pookie",
+  "type": "meme",
+  "emoji": "🧸",
+  "vibe": [
+   "funny",
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "girldinner",
+  "name": "Girl dinner",
+  "type": "meme",
+  "emoji": "🍱",
+  "vibe": [
+   "funny"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "girlmath",
+  "name": "Girl math",
+  "type": "meme",
+  "emoji": "🧮",
+  "vibe": [
+   "funny"
+  ],
+  "hot": false,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "mother",
+  "name": "Mother (mothering)",
+  "type": "meme",
+  "emoji": "🤱",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "ate",
+  "name": "Ate that",
+  "type": "meme",
+  "emoji": "😋",
+  "vibe": [
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "nocap",
+  "name": "No cap",
+  "type": "meme",
+  "emoji": "🧢",
+  "vibe": [
+   "funny",
+   "win"
+  ],
+  "hot": false,
+  "src": "TikTok • Shorts"
+ },
+ {
+  "id": "touchgrass",
+  "name": "Touch grass",
+  "type": "meme",
+  "emoji": "🌱",
+  "vibe": [
+   "funny"
+  ],
+  "hot": false,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "ratio",
+  "name": "Ratio + L",
+  "type": "meme",
+  "emoji": "📉",
+  "vibe": [
+   "funny"
+  ],
+  "hot": false,
+  "src": "TikTok"
+ },
+ {
+  "id": "girlboss",
+  "name": "Girlboss",
+  "type": "meme",
+  "emoji": "💼",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": false,
+  "src": "Reels"
+ },
+ {
+  "id": "gyatt",
+  "name": "GYATT",
+  "type": "meme",
+  "emoji": "🍑",
+  "vibe": [
+   "shock",
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "mewing",
+  "name": "Mewing",
+  "type": "meme",
+  "emoji": "😶",
+  "vibe": [
+   "win"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels • Shorts"
+ },
+ {
+  "id": "fanumtax",
+  "name": "Fanum tax",
+  "type": "meme",
+  "emoji": "🍔",
+  "vibe": [
+   "funny"
+  ],
+  "hot": true,
+  "src": "TikTok • Shorts"
+ },
+ {
+  "id": "demure",
+  "name": "Very demure",
+  "type": "meme",
+  "emoji": "🧘",
+  "vibe": [
+   "funny",
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "pushpa",
+  "name": "Pushpa (Jhukega nahi)",
+  "type": "meme",
+  "emoji": "🌿",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • Shorts"
+ },
+ {
+  "id": "leo",
+  "name": "Leo",
+  "type": "meme",
+  "emoji": "🦁",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": true,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "roman",
+  "name": "Roman Empire",
+  "type": "meme",
+  "emoji": "🏛️",
+  "vibe": [
+   "funny"
+  ],
+  "hot": false,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "goat",
+  "name": "GOAT",
+  "type": "meme",
+  "emoji": "🐐",
+  "vibe": [
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • Shorts"
+ },
+ {
+  "id": "siuuu",
+  "name": "SIUUU",
+  "type": "meme",
+  "emoji": "⚽",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • Shorts"
+ },
+ {
+  "id": "brat",
+  "name": "Brat summer",
+  "type": "sticker",
+  "emoji": "🟢",
+  "vibe": [
+   "hype"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "coquette",
+  "name": "Coquette",
+  "type": "sticker",
+  "emoji": "🎀",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "mobwife",
+  "name": "Mob wife",
+  "type": "sticker",
+  "emoji": "💋",
+  "vibe": [
+   "win",
+   "hype"
+  ],
+  "hot": false,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "pov",
+  "name": "POV shot",
+  "type": "sticker",
+  "emoji": "🎥",
+  "vibe": [
+   "funny",
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok • Shorts"
+ },
+ {
+  "id": "grwm",
+  "name": "GRWM",
+  "type": "sticker",
+  "emoji": "💄",
+  "vibe": [
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "fitcheck",
+  "name": "Fit check",
+  "type": "sticker",
+  "emoji": "👗",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "unboxing",
+  "name": "Unboxing",
+  "type": "sticker",
+  "emoji": "📦",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • Shorts"
+ },
+ {
+  "id": "glowup",
+  "name": "Glow-up",
+  "type": "sticker",
+  "emoji": "🌟",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "gulabi",
+  "name": "Gulabi Sadi",
+  "type": "sticker",
+  "emoji": "🌸",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": false,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "kala",
+  "name": "Kala Chashma",
+  "type": "sticker",
+  "emoji": "👓",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • Shorts"
+ },
+ {
+  "id": "appledance",
+  "name": "Apple dance GIF",
+  "type": "gif",
+  "emoji": "🍏",
+  "vibe": [
+   "hype"
+  ],
+  "hot": true,
+  "src": "TikTok • Reels"
+ },
+ {
+  "id": "tshwala",
+  "name": "Tshwala Bam GIF",
+  "type": "gif",
+  "emoji": "👯",
+  "vibe": [
+   "hype"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "transition",
+  "name": "Smooth transition GIF",
+  "type": "gif",
+  "emoji": "🔄",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • Shorts"
+ },
+ {
+  "id": "waitforit",
+  "name": "Wait for it GIF",
+  "type": "gif",
+  "emoji": "⏳",
+  "vibe": [
+   "shock"
+  ],
+  "hot": false,
+  "src": "Reels • Shorts"
+ },
+ {
+  "id": "moye",
+  "name": "Moye Moye song",
+  "type": "sfx",
+  "emoji": "🌊",
+  "vibe": [
+   "fail",
+   "funny"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • Shorts"
+ },
+ {
+  "id": "jamal",
+  "name": "Jamal Kudu",
+  "type": "sfx",
+  "emoji": "🪘",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "espresso",
+  "name": "Espresso",
+  "type": "sfx",
+  "emoji": "☕",
+  "vibe": [
+   "hype"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "apt",
+  "name": "APT.",
+  "type": "sfx",
+  "emoji": "🍎",
+  "vibe": [
+   "hype",
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "notlikeus",
+  "name": "Not Like Us",
+  "type": "sfx",
+  "emoji": "🕺",
+  "vibe": [
+   "hype"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "birds",
+  "name": "Birds of a Feather",
+  "type": "sfx",
+  "emoji": "🐦",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "houdini",
+  "name": "Houdini",
+  "type": "sfx",
+  "emoji": "🎩",
+  "vibe": [
+   "shock",
+   "hype"
+  ],
+  "hot": false,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "cupid",
+  "name": "Cupid (Twin Ver.)",
+  "type": "sfx",
+  "emoji": "👼",
+  "vibe": [
+   "win",
+   "funny"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "calmdown",
+  "name": "Calm Down",
+  "type": "sfx",
+  "emoji": "🌙",
+  "vibe": [
+   "win"
+  ],
+  "hot": false,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "painttown",
+  "name": "Paint the Town Red",
+  "type": "sfx",
+  "emoji": "🎨",
+  "vibe": [
+   "hype"
+  ],
+  "hot": false,
+  "src": "Instagram Reels"
+ },
+ {
+  "id": "phonk",
+  "name": "Phonk drift",
+  "type": "sfx",
+  "emoji": "🚗",
+  "vibe": [
+   "hype"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • Shorts"
+ },
+ {
+  "id": "usethissound",
+  "name": "Use this sound",
+  "type": "sfx",
+  "emoji": "🎤",
+  "vibe": [
+   "win"
+  ],
+  "hot": true,
+  "src": "Instagram Reels • TikTok"
+ },
+ {
+  "id": "spedup",
+  "name": "Sped up",
+  "type": "sfx",
+  "emoji": "⏩",
+  "vibe": [
+   "hype"
+  ],
+  "hot": false,
+  "src": "TikTok • Reels"
+ }
+]
